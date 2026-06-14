@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Primary Colors -->
+    <color name="primary10">#FFFFCE7E</color>
+    <color name="primary50">#FFFFC059</color>
+    <color name="primary100">#FFFCB53F</color>
+    <color name="primary150">#FFF39F1B</color>
+    <color name="primary200">#FFE88011</color>
+
+    <!-- Secondary Colors -->
+    <color name="secondary10">#FFFFE7BD</color>
+    <color name="secondary50">#FFFFF1D8</color>
+    <color name="secondary100">#FFFFF8EC</color>
+    <color name="secondary150">#FFFFE0AA</color>
+    <color name="secondary200">#FFFFD690</color>
+
+    <!-- Accent Colors -->
+    <color name="accent10">#FF7D7C82</color>
+    <color name="accent50">#FF686771</color>
+    <color name="accent100">#FF403E4D</color>
+    <color name="accent150">#FF2A2739</color>
+    <color name="accent200">#FF1B182B</color>
+
+    <!-- Background Color -->
+    <color name="backgroundBase">#FFFFFFFF</color>
+    <color name="backgroundBorder">#FFF7F6F2</color>
+    <color name="backgroundSecondary">#FFFBFBFB</color>
+    <color name="backgroundSecondaryBorder">#FFF0F0F0</color>
+
+    <!-- Neutral Colors -->
+    <color name="neutral10">#FFFCFCFC</color>
+    <color name="neutral50">#FFBEBEBE</color>
+    <color name="neutral100">#FF8E8E8E</color>
+    <color name="neutral150">#FF5F5F5F</color>
+    <color name="neutral200">#FF2D2D2D</color>
+
+    <!-- Success Colors -->
+    <color name="successText">#FF00C059</color>
+    <color name="successBorder">#FF7FDFAB</color>
+    <color name="successBg">#FFE6F9EF</color>
+
+    <!-- Warning Colors -->
+    <color name="warningText">#FFFFBE00</color>
+    <color name="warningBorder">#FFFFDE7F</color>
+    <color name="warningBg">#FFFFF9E6</color>
+
+    <!-- Danger Colors -->
+    <color name="dangerText">#FFFF3B2F</color>
+    <color name="dangerBorder">#FFFF9C96</color>
+    <color name="dangerBg">#FFFFECEB</color>
+</resources>
