@@ -1,0 +1,25 @@
+#storedata
+1.
+image = "img_store_central"
+store name = "Central D'Classic"
+location = "Jl. M.H. Thamrin No. 1, Menteng, Jakarta Pusat"
+
+2.
+image = "img_store_poris"
+store name = "D’Classic Poris Store"
+location = "Cipondoh, Kota Tangerang, Provinsi Banten"
+
+3.
+image = "img_store_sentul"
+store name = "D'Classic Sentul"
+location = "Sentul City, Babakan Madang, Bogor, Jawa Barat"
+
+4.
+image = "img_store_boulevard"
+store name = "D’Classic Boulevard"
+location = "Jl. Ganesha Boulevard, Kec. Cikarang Pusat,"
+
+5.
+image = "img_store_yogya"
+store name = "Yogyakarta D’Classic Store"
+location = "Jl. Malioboro, Sosromenduran, Gedong Tengen"

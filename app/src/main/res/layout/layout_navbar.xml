@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="70dp"
+    android:layout_gravity="bottom|center_horizontal"
+    android:layout_marginHorizontal="16dp"
+    android:layout_marginBottom="24dp"
+    android:background="@drawable/bg_navbar"
+    android:orientation="horizontal"
+    android:gravity="center"
+    android:paddingStart="28dp"
+    android:paddingEnd="28dp"
+    android:paddingTop="8dp"
+    android:paddingBottom="7dp">
+
+    <LinearLayout
+        android:id="@+id/navHome"
+        android:layout_width="0dp"
+        android:layout_height="55dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:clickable="true"
+        android:focusable="true">
+
+        <ImageView
+            android:id="@+id/navIconHome"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_nav_home"
+            android:contentDescription="@null" />
+
+        <TextView
+            android:id="@+id/navTextHome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Home"
+            android:textAppearance="@style/BodyMedium"
+            android:textColor="@color/accent10" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/navBookList"
+        android:layout_width="0dp"
+        android:layout_height="55dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:clickable="true"
+        android:focusable="true">
+
+        <ImageView
+            android:id="@+id/navIconBookList"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_nav_booklist"
+            android:contentDescription="@null" />
+
+        <TextView
+            android:id="@+id/navTextBookList"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Booklist"
+            android:textAppearance="@style/BodyMedium"
+            android:textColor="@color/accent10" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/navStore"
+        android:layout_width="0dp"
+        android:layout_height="55dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:clickable="true"
+        android:focusable="true">
+
+        <ImageView
+            android:id="@+id/navIconStore"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_nav_ourstore"
+            android:contentDescription="@null" />
+
+        <TextView
+            android:id="@+id/navTextStore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Store"
+            android:textAppearance="@style/BodyMedium"
+            android:textColor="@color/accent10" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/navLogout"
+        android:layout_width="0dp"
+        android:layout_height="55dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:clickable="true"
+        android:focusable="true">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_nav_logout"
+            android:contentDescription="@null" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Logout"
+            android:textAppearance="@style/BodyMedium"
+            android:textColor="@color/dangerText" />
+
+    </LinearLayout>
+
+</LinearLayout>
