@@ -9,8 +9,12 @@ import androidx.core.view.GravityCompat;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.dclassicbook.R;
+import com.example.dclassicbook.application.Mediator;
+import com.example.dclassicbook.application.handler.ui.adapter.StoreAdapter;
 import com.example.dclassicbook.application.handler.ui.util.NavbarHelper;
 import com.example.dclassicbook.application.handler.ui.util.SidebarHelper;
 
@@ -30,6 +34,10 @@ public class OurStoreActivity extends AppCompatActivity {
         });
 
         drawerLayout = findViewById(R.id.drawerLayout);
+
+        RecyclerView rvStoreList = findViewById(R.id.rvStoreList);
+        rvStoreList.setLayoutManager(new LinearLayoutManager(this));
+        rvStoreList.setAdapter(new StoreAdapter(Mediator.getStoreList()));
 
         SidebarHelper.setup(this, drawerLayout, SidebarHelper.Page.STORE);
         NavbarHelper.setup(this, NavbarHelper.Page.STORE);
