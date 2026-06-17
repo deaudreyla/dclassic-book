@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="277dp">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="173dp"
+        android:layout_gravity="bottom"
+        android:background="@drawable/bg_card_gradient" />
+
+    <ImageView
+        android:id="@+id/ivCover"
+        android:layout_width="130dp"
+        android:layout_height="175dp"
+        android:layout_gravity="top|start"
+        android:layout_marginStart="25dp"
+        android:background="@drawable/bg_image_cover"
+        android:clipToOutline="true"
+        android:elevation="2dp"
+        android:scaleType="centerCrop"
+        tools:ignore="ContentDescription" />
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="144dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|start"
+        android:layout_marginTop="197dp"
+        android:layout_marginStart="14dp"
+        android:textAppearance="@style/Heading3"
+        android:textColor="@color/neutral200"
+        android:maxLines="1"
+        android:ellipsize="end"
+        tools:text="Make Believe" />
+
+    <TextView
+        android:id="@+id/tvAuthor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|start"
+        android:layout_marginTop="221dp"
+        android:layout_marginStart="14dp"
+        android:textAppearance="@style/SubHeading1"
+        android:textColor="@color/neutral200"
+        android:maxLines="1"
+        tools:text="Mac Barnett" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:layout_gravity="top|start"
+        android:layout_marginTop="249dp"
+        android:layout_marginStart="14dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <LinearLayout
+            android:id="@+id/llStars"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical" />
+
+        <TextView
+            android:id="@+id/tvRating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:textAppearance="@style/BodySmall"
+            android:textColor="@color/neutral100"
+            tools:text="4" />
+
+        <TextView
+            android:id="@+id/tvUserCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="2dp"
+            android:textAppearance="@style/BodySmall"
+            android:textColor="@color/neutral100"
+            tools:text="(1,9k users)" />
+
+    </LinearLayout>
+
+</FrameLayout>

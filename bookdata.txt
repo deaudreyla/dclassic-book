@@ -1,0 +1,68 @@
+#bookdata
+1.
+image = "res/drawable/img_bookcover_animalfarm.png"
+title = "Animal Farm"
+author = "George Orwell"
+category = "Fiction"
+synopsis = "A farm is taken over by its overworked, mistreated animals. With flaming idealism and stirring slogans, they set out to create a paradise of progress, justice, and equality. Thus the stage is set for one of the most telling satiric fables ever penned –a razor-edged fairy tale for grown-ups that records the evolution from revolution against tyranny to a totalitarianism just as terrible.
+When Animal Farm was first published, Stalinist Russia was seen as its target. Today it is devastatingly clear that wherever and whenever freedom is attacked, under whatever banner, the cutting clarity and savage comedy of George Orwell’s masterpiece have a meaning and message still ferociously fresh."
+rating = "4.03"
+user = "4,707,877"
+price = "Rp 35,000"
+
+2.
+image = "res/drawable/img_bookcover_thealchemist.png"
+title = "The Alchemist"
+author = "Paulo Coelho"
+category = "Fiction"
+synopsis = "Combining magic, mysticism, wisdom, and wonder into an inspiring tale of self-discovery, The Alchemist has become a modern classic, selling millions of copies around the world and transforming the lives of countless readers across generations.
+Paulo Coelho's masterpiece tells the mystical story of Santiago, an Andalusian shepherd boy who yearns to travel in search of a worldly treasure. His quest will lead him to riches far different—and far more satisfying—than he ever imagined. Santiago's journey teaches us about the essential wisdom of listening to our hearts, recognizing opportunity and learning to read the omens strewn along life's path, and, most importantly, following our dreams."
+rating = "3.92"
+user = "3,681,028"
+price = "Rp 40,000"
+
+3.
+image = "res/drawable/img_bookcover_lemon.png"
+title = "As Long as the Lemon Trees Grow"
+author = "Zoulfa Katouh"
+category = "Fiction"
+synopsis = "alama Kassab was a pharmacy student when the cries for freedom broke out in Syria. She still had her parents and her big brother; she still had her home. She had a normal teenager’s life.
+Now Salama volunteers at a hospital in Homs, helping the wounded who flood through the doors daily. Secretly, though, she is desperate to find a way out of her beloved country before her sister-in-law, Layla, gives birth. So desperate, that she has manifested a physical embodiment of her fear in the form of her imagined companion, Khawf, who haunts her every move in an effort to keep her safe.
+But even with Khawf pressing her to leave, Salama is torn between her loyalty to her country and her conviction to survive. Salama must contend with bullets and bombs, military assaults, and her shifting sense of morality before she might finally breathe free. And when she crosses paths with the boy she was supposed to meet one fateful day, she starts to doubt her resolve in leaving home at all.
+Soon, Salama must learn to see the events around her for what they truly are—not a war, but a revolution—and decide how she, too, will cry for Syria’s freedom."
+rating = "4.44"
+user = "132,308"
+price = "Rp 100.700"
+
+4.
+image = "res/drawable/img_bookcover_quiet.png"
+title = "Quiet: The Power of Introverts in a World That Can't Stop Talking"
+author = "Susan Cain"
+category = "Non-Fiction"
+synopsis = "At least one-third of the people we know are introverts. They are the ones who prefer listening to speaking; who innovate and create but dislike self-promotion; who favor working on their own over working in teams. It is to introverts—Rosa Parks, Chopin, Dr. Seuss, Steve Wozniak—that we owe many of the great contributions to society. 
+In Quiet, Susan Cain argues that we dramatically undervalue introverts and shows how much we lose in doing so. She charts the rise of the Extrovert Ideal throughout the twentieth century and explores how deeply it has come to permeate our culture. She also introduces us to successful introverts—from a witty, high-octane public speaker who recharges in solitude after his talks, to a record-breaking salesman who quietly taps into the power of questions. Passionately argued, superbly researched, and filled with indelible stories of real people, Quiet has the power to permanently change how we see introverts and, equally important, how they see themselves."
+rating = "4.07"
+user = "481,710"
+price = "Rp 55,000"
+
+5.
+image = "res/drawable/img_bookcover_makebelieve.png"
+title = "Make Believe"
+author = "Mac Barnett"
+category = "Non-Fiction"
+synopsis = "From the newly appointed National Ambassador for Young People's Literature, a timely and intimate meditation on the ways we think about and interact with children’s literature, and what that says about our opinions of children and childhood."
+rating = "4.39"
+user = "1,835"
+price = "Rp 50,000"
+
+6.
+image = "res/drawable/img_bookcover_atomichabits.png"
+title = "Atomic Habits: An Easy & Proven Way to Build Good Habits & Break Bad Ones"
+author = "James Clear"
+category = "Non-Fiction"
+synopsis = "No matter your goals, Atomic Habits offers a proven framework for improving—every day. James Clear, one of the world's leading experts on habit formation, reveals practical strategies that will teach you exactly how to form good habits, break bad ones, and master the tiny behaviors that lead to remarkable results.
+If you're having trouble changing your habits, the problem isn't you. The problem is your system. Bad habits repeat themselves again and again not because you don't want to change, but because you have the wrong system for change. You do not rise to the level of your goals. You fall to the level of your systems. Here, you'll get a proven system that can take you to new heights.
+Clear is known for his ability to distill complex topics into simple behaviors that can be easily applied to daily life and work. Here, he draws on the most proven ideas from biology, psychology, and neuroscience to create an easy-to-understand guide for making good habits inevitable and bad habits impossible. Along the way, readers will be inspired and entertained with true stories from Olympic gold medalists, award-winning artists, business leaders, life-saving physicians, and star comedians who have used the science of small habits to master their craft and vault to the top of their field."
+rating = "4.31"
+user = "1,376,417"
+price = "Rp 82,080"
