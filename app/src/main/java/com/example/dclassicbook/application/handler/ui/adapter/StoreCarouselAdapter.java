@@ -27,6 +27,13 @@ public class StoreCarouselAdapter extends RecyclerView.Adapter<StoreCarouselAdap
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.item_carousel_store, parent, false);
+
+        int screenWidth = parent.getContext().getResources().getDisplayMetrics().widthPixels;
+
+        ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
+        layoutParams.width = (int) (screenWidth * 0.82);
+        view.setLayoutParams(layoutParams);
+
         return new ViewHolder(view);
     }
 
