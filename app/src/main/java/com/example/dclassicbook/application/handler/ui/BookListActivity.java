@@ -1,9 +1,6 @@
 package com.example.dclassicbook.application.handler.ui;
 
-import android.content.Intent;
-import android.graphics.Rect;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -13,25 +10,19 @@ import androidx.core.view.GravityCompat;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager2.widget.ViewPager2;
 
 import com.example.dclassicbook.R;
-import com.example.dclassicbook.application.Mediator;
-import com.example.dclassicbook.application.handler.ui.adapter.BookAdapter;
+import com.example.dclassicbook.application.handler.ui.adapter.BookListPagerAdapter;
 import com.example.dclassicbook.application.handler.ui.util.NavbarHelper;
 import com.example.dclassicbook.application.handler.ui.util.SidebarHelper;
 
 public class BookListActivity extends AppCompatActivity {
 
-    private static final String CATEGORY_FICTION = "Fiction";
-    private static final String CATEGORY_NON_FICTION = "Non-Fiction";
-
+    private DrawerLayout drawerLayout;
     private TextView tabFiction;
     private TextView tabNonFiction;
-    private RecyclerView rvBookList;
-    private DrawerLayout drawerLayout;
-    private String activeCategory = CATEGORY_FICTION;
+    private ViewPager2 viewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,31 +38,32 @@ public class BookListActivity extends AppCompatActivity {
         drawerLayout = findViewById(R.id.drawerLayout);
         tabFiction = findViewById(R.id.tabFiction);
         tabNonFiction = findViewById(R.id.tabNonFiction);
-        rvBookList = findViewById(R.id.rvBookList);
+        viewPager = findViewById(R.id.viewPager);
 
-        rvBookList.setLayoutManager(new GridLayoutManager(this, 2));
+        viewPager.setAdapter(new BookListPagerAdapter(this));
 
-        int gap = (int) (16 * getResources().getDisplayMetrics().density);
-        rvBookList.addItemDecoration(new RecyclerView.ItemDecoration() {
+        tabFiction.setOnClickListener(v -> viewPager.setCurrentItem(0, true));
+        tabNonFiction.setOnClickListener(v -> viewPager.setCurrentItem(1, true));
+
+        viewPager.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
             @Override
-            public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
-                int position = parent.getChildAdapterPosition(view);
-                if (position % 2 == 0) {
-                    outRect.right = gap / 2;
-                } else {
-                    outRect.left = gap / 2;
-                }
-                outRect.bottom = gap;
+            public void onPageSelected(int position) {
+                updateTabAppearance(position);
             }
         });
 
         SidebarHelper.setup(this, drawerLayout, SidebarHelper.Page.BOOKLIST);
         NavbarHelper.setup(this, NavbarHelper.Page.BOOKLIST);
+    }
 
-        tabFiction.setOnClickListener(v -> selectCategory(CATEGORY_FICTION));
-        tabNonFiction.setOnClickListener(v -> selectCategory(CATEGORY_NON_FICTION));
+    private void updateTabAppearance(int position) {
+        boolean isFiction = position == 0;
 
-        selectCategory(activeCategory);
+        tabFiction.setBackgroundResource(isFiction ? R.drawable.bg_tab_active : R.drawable.bg_tab_inactive);
+        tabFiction.setTextColor(getColor(isFiction ? R.color.neutral10 : R.color.neutral50));
+
+        tabNonFiction.setBackgroundResource(isFiction ? R.drawable.bg_tab_inactive : R.drawable.bg_tab_active);
+        tabNonFiction.setTextColor(getColor(isFiction ? R.color.neutral50 : R.color.neutral10));
     }
 
     @Override
@@ -81,25 +73,5 @@ public class BookListActivity extends AppCompatActivity {
         } else {
             super.onBackPressed();
         }
-    }
-
-    private void selectCategory(String category) {
-        activeCategory = category;
-        updateTabAppearance();
-        rvBookList.setAdapter(new BookAdapter(Mediator.getBookList(category), book -> {
-            Intent intent = new Intent(this, BookDetailActivity.class);
-            intent.putExtra(BookDetailActivity.EXTRA_BOOK_TITLE, book.getTitle());
-            startActivity(intent);
-        }));
-    }
-
-    private void updateTabAppearance() {
-        boolean isFiction = activeCategory.equals(CATEGORY_FICTION);
-
-        tabFiction.setBackgroundResource(isFiction ? R.drawable.bg_tab_active : R.drawable.bg_tab_inactive);
-        tabFiction.setTextColor(getColor(isFiction ? R.color.neutral10 : R.color.neutral50));
-
-        tabNonFiction.setBackgroundResource(isFiction ? R.drawable.bg_tab_inactive : R.drawable.bg_tab_active);
-        tabNonFiction.setTextColor(getColor(isFiction ? R.color.neutral50 : R.color.neutral10));
     }
 }

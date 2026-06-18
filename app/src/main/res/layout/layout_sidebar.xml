@@ -56,7 +56,7 @@
                 android:id="@+id/iconHome"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:src="@drawable/ic_nav_home"
+                android:src="@drawable/ic_nav_home_selector"
                 android:contentDescription="@null" />
 
             <TextView
@@ -86,7 +86,7 @@
                 android:id="@+id/iconBookList"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:src="@drawable/ic_nav_booklist"
+                android:src="@drawable/ic_nav_booklist_selector"
                 android:contentDescription="@null" />
 
             <TextView
@@ -116,7 +116,7 @@
                 android:id="@+id/iconOurStores"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:src="@drawable/ic_nav_ourstore"
+                android:src="@drawable/ic_nav_ourstore_selector"
                 android:contentDescription="@null" />
 
             <TextView

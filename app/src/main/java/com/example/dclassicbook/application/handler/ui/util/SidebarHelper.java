@@ -27,7 +27,9 @@ public class SidebarHelper {
         int[] textIds = {R.id.textHome, R.id.textBookList, R.id.textOurStores};
 
         for (int id : iconIds) {
-            ((ImageView) activity.findViewById(id)).setImageTintList(ColorStateList.valueOf(inactiveColor));
+            ImageView iv = activity.findViewById(id);
+            iv.setSelected(false);
+            iv.setImageTintList(null);
         }
         for (int id : textIds) {
             ((TextView) activity.findViewById(id)).setTextColor(inactiveColor);
@@ -49,7 +51,7 @@ public class SidebarHelper {
                 break;
         }
 
-        ((ImageView) activity.findViewById(activeIconId)).setImageTintList(ColorStateList.valueOf(activeColor));
+        ((ImageView) activity.findViewById(activeIconId)).setSelected(true);
         ((TextView) activity.findViewById(activeTextId)).setTextColor(activeColor);
 
         activity.findViewById(R.id.btnHamburg).setOnClickListener(v ->

@@ -27,7 +27,8 @@
             android:id="@+id/navIconHome"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:src="@drawable/ic_nav_home"
+            android:layout_marginBottom="6dp"
+            android:src="@drawable/ic_nav_home_selector"
             android:contentDescription="@null" />
 
         <TextView
@@ -54,7 +55,8 @@
             android:id="@+id/navIconBookList"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:src="@drawable/ic_nav_booklist"
+            android:layout_marginBottom="6dp"
+            android:src="@drawable/ic_nav_booklist_selector"
             android:contentDescription="@null" />
 
         <TextView
@@ -81,7 +83,8 @@
             android:id="@+id/navIconStore"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:src="@drawable/ic_nav_ourstore"
+            android:layout_marginBottom="6dp"
+            android:src="@drawable/ic_nav_ourstore_selector"
             android:contentDescription="@null" />
 
         <TextView
@@ -107,6 +110,7 @@
         <ImageView
             android:layout_width="24dp"
             android:layout_height="24dp"
+            android:layout_marginBottom="6dp"
             android:src="@drawable/ic_nav_logout"
             android:contentDescription="@null" />
 
