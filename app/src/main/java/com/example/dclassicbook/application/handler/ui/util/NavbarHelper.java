@@ -24,7 +24,9 @@ public class NavbarHelper {
         int[] textIds = {R.id.navTextHome, R.id.navTextBookList, R.id.navTextStore};
 
         for (int id : iconIds) {
-            ((ImageView) activity.findViewById(id)).setImageTintList(ColorStateList.valueOf(inactiveColor));
+            ImageView iv = activity.findViewById(id);
+            iv.setSelected(false);
+            iv.setImageTintList(null);
         }
         for (int id : textIds) {
             ((TextView) activity.findViewById(id)).setTextColor(inactiveColor);
@@ -46,7 +48,7 @@ public class NavbarHelper {
                 break;
         }
 
-        ((ImageView) activity.findViewById(activeIconId)).setImageTintList(ColorStateList.valueOf(activeColor));
+        ((ImageView) activity.findViewById(activeIconId)).setSelected(true);
         ((TextView) activity.findViewById(activeTextId)).setTextColor(activeColor);
 
         activity.findViewById(R.id.navHome).setOnClickListener(v -> {

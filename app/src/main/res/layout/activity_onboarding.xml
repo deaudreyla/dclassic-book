@@ -100,7 +100,7 @@
         android:orientation="vertical"
         android:paddingStart="20dp"
         android:paddingEnd="20dp"
-        android:paddingTop="24dp"
+        android:paddingTop="36dp"
         android:paddingBottom="36dp">
 
         <Button
@@ -114,32 +114,17 @@
             android:textAppearance="@style/PrimaryButton"
             android:textColor="@color/neutral10" />
 
-        <LinearLayout
+        <Button
+            android:id="@+id/btnGoToLogin"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:gravity="end|center_vertical"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/btnGoToLogin"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:clickable="true"
-                android:focusable="true"
-                android:text="Go To Login"
-                android:textAppearance="@style/SubHeading1"
-                android:textColor="@color/linkBlue" />
-
-            <ImageView
-                android:layout_width="14dp"
-                android:layout_height="14dp"
-                android:layout_marginStart="4dp"
-                android:src="@drawable/ic_arrow_forward"
-                android:tint="@color/linkBlue"
-                tools:ignore="ContentDescription" />
-
-        </LinearLayout>
+            android:layout_height="42dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/bg_button_secondary"
+            android:stateListAnimator="@null"
+            android:text="Go To Login"
+            android:textAppearance="@style/PrimaryButton"
+            android:textColor="@color/neutral10"
+            app:backgroundTint="@null" />
 
     </LinearLayout>
 

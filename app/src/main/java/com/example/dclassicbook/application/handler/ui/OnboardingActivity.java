@@ -36,9 +36,9 @@ public class OnboardingActivity extends AppCompatActivity {
     };
 
     private final String[] pageDescriptions = {
-            "Discover countless titles, from inspiring nonfiction to captivating fiction. Start curating your home library, fill your shelves with stories that matter, and bring every book closer to you.",
-            "Order with ease and let us handle the rest. With secure packaging and fast delivery, your stories arrive safely, ready to be enjoyed. From checkout to doorstep, we make sure every book reaches you quickly and in perfect condition.",
-            "Open your book and dive right in. Enjoy every chapter at your own pace, letting stories unfold wherever you are. Reading is more than turning pages, it's finding moments of peace, joy, and discovery that become part of your everyday life."
+            "Discover countless titles, from inspiring nonfiction to captivating fiction. Fill your shelves with stories that matter, and bring every book closer to you.",
+            "Order with ease and let us handle the rest. With secure packaging and fast delivery, your stories arrive safely, ready to be enjoyed.",
+            "Enjoy every chapter at your own pace, letting stories unfold wherever you are. Reading is more than turning pages, it's finding moments of peace and joy."
     };
 
     private int currentPage = 0;
@@ -73,7 +73,7 @@ public class OnboardingActivity extends AppCompatActivity {
         };
 
         TextView btnGoToLogin = findViewById(R.id.btnGoToLogin);
-        btnGoToLogin.setPaintFlags(btnGoToLogin.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+        btnGoToLogin.setPaintFlags(btnGoToLogin.getPaintFlags() );
         btnGoToLogin.setOnClickListener(v -> goToLogin());
 
         updateContent(0);

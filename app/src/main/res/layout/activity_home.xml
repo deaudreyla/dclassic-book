@@ -81,14 +81,15 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:clipChildren="false"
                             android:orientation="vertical"
                             android:paddingBottom="40dp">
 
                             <TextView
                                 android:id="@+id/tvGreeting"
-                                android:layout_width="228dp"
+                                android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Hello User!"
+                                android:text="Hello Niki!"
                                 android:textAppearance="@style/HeroTitle"
                                 android:textColor="@color/accent200" />
 
@@ -103,9 +104,9 @@
                         </LinearLayout>
 
                         <ImageView
-                            android:layout_width="240dp"
+                            android:layout_width="220dp"
                             android:layout_height="280dp"
-                            android:layout_marginTop="42dp"
+                            android:layout_marginTop="40dp"
                             android:layout_marginRight="-42dp"
                             android:cropToPadding="false"
                             android:defaultFocusHighlightEnabled="true"
