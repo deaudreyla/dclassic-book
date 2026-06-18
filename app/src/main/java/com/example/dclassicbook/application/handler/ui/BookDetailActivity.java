@@ -1,13 +1,18 @@
 package com.example.dclassicbook.application.handler.ui;
 
+import android.content.Intent;
 import android.graphics.RenderEffect;
 import android.graphics.Shader;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.dclassicbook.R;
@@ -41,7 +46,9 @@ public class BookDetailActivity extends AppCompatActivity {
         TextView tvSynopsis = findViewById(R.id.tvSynopsis);
         TextView tvPrice = findViewById(R.id.tvPrice);
         TextView tvBack = findViewById(R.id.tvBack);
-        TextView btnBuyBook = findViewById(R.id.btnBuyBook);
+        Button btnBuyBook = findViewById(R.id.btnBuyBook);
+        EditText etPhoneNumber = findViewById(R.id.etPhoneNumber);
+        EditText etAddress = findViewById(R.id.etAddress);
         LinearLayout llStars = findViewById(R.id.llStars);
 
         ivBackground.setImageResource(book.getImage());
@@ -60,7 +67,58 @@ public class BookDetailActivity extends AppCompatActivity {
         tvPrice.setText(FormatHelper.formatPrice(book.getPrice()));
 
         tvBack.setOnClickListener(v -> finish());
-        btnBuyBook.setOnClickListener(v ->
-                Toast.makeText(this, "Order feature is coming soon", Toast.LENGTH_SHORT).show());
+
+        TextWatcher inputWatcher = new TextWatcher() {
+            @Override public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+            @Override public void onTextChanged(CharSequence s, int start, int before, int count) {}
+            @Override
+            public void afterTextChanged(Editable s) {
+                boolean hasInput = etPhoneNumber.getText().length() > 0 || etAddress.getText().length() > 0;
+                btnBuyBook.setEnabled(hasInput);
+            }
+        };
+
+        etPhoneNumber.addTextChangedListener(inputWatcher);
+        etAddress.addTextChangedListener(inputWatcher);
+
+        btnBuyBook.setOnClickListener(v -> {
+            String phone = etPhoneNumber.getText().toString().trim();
+            String address = etAddress.getText().toString().trim();
+
+            if (phone.isEmpty()) {
+                showDialog("Phone Number Kosong", "Phone number tidak boleh kosong.");
+                return;
+            }
+
+            if (!phone.matches("[0-9]+")) {
+                showDialog("Phone Number Tidak Valid", "Phone number hanya boleh berisi angka.");
+                return;
+            }
+
+            if (address.isEmpty()) {
+                showDialog("Address Kosong", "Address tidak boleh kosong.");
+                return;
+            }
+
+            new AlertDialog.Builder(this)
+                    .setTitle("Pesanan Berhasil!")
+                    .setMessage("Email konfirmasi pesanan telah dikirimkan kepada Anda.")
+                    .setPositiveButton("OK", (dialog, which) -> {
+                        Intent intent = new Intent(this, BookListActivity.class);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+                        startActivity(intent);
+                        finish();
+                    })
+                    .setCancelable(false)
+                    .show();
+        });
+    }
+
+    private void showDialog(String title, String message) {
+        new AlertDialog.Builder(this)
+                .setTitle(title)
+                .setMessage(message)
+                .setPositiveButton("OK", null)
+                .show();
     }
 }

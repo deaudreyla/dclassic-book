@@ -227,19 +227,19 @@
 
                 </LinearLayout>
 
-                <TextView
+                <Button
                     android:id="@+id/btnBuyBook"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:background="@drawable/bg_buy_button"
-                    android:gravity="center"
+                    android:enabled="false"
                     android:paddingVertical="12dp"
+                    android:stateListAnimator="@null"
                     android:text="Buy Book"
                     android:textAppearance="@style/PrimaryButton"
                     android:textColor="@color/neutral10"
-                    android:clickable="true"
-                    android:focusable="true" />
+                    app:backgroundTint="@null" />
 
             </LinearLayout>
 

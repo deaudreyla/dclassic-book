@@ -11,6 +11,8 @@ import java.util.List;
 
 public class Mediator {
 
+    public static String loggedInUsername = "";
+
     public static List<Book> getBookList(String category) {
         return GetBookListHandler.getBooksByCategory(category);
     }

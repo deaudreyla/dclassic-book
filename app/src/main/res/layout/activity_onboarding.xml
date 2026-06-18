@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/bg_onboarding"
+    android:clipChildren="false"
+    android:orientation="vertical">
+
+    <!-- STATIC: Dot indicators -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="52dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <View
+            android:id="@+id/dot0"
+            android:layout_width="71dp"
+            android:layout_height="10dp"
+            android:background="@drawable/bg_onboarding_dot_active" />
+
+        <View
+            android:layout_width="11dp"
+            android:layout_height="1dp" />
+
+        <View
+            android:id="@+id/dot1"
+            android:layout_width="20dp"
+            android:layout_height="10dp"
+            android:background="@drawable/bg_onboarding_dot_inactive" />
+
+        <View
+            android:layout_width="11dp"
+            android:layout_height="1dp" />
+
+        <View
+            android:id="@+id/dot2"
+            android:layout_width="20dp"
+            android:layout_height="10dp"
+            android:background="@drawable/bg_onboarding_dot_inactive" />
+
+    </LinearLayout>
+
+    <!-- ANIMATED: Content container (image + title + description) -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:clipChildren="false">
+
+        <LinearLayout
+            android:id="@+id/llContent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/ivOnboarding"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:padding="36dp"
+                android:scaleType="fitCenter"
+                tools:ignore="ContentDescription"
+                tools:src="@drawable/img_bookfly" />
+
+            <TextView
+                android:id="@+id/tvTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:textAppearance="@style/IntroTitle"
+                android:textColor="@color/accent200"
+                tools:text="A World of Books Awaits" />
+
+            <TextView
+                android:id="@+id/tvDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginTop="12dp"
+                android:textAppearance="@style/SubHeading1"
+                android:textColor="@color/accent200"
+                tools:text="Description goes here." />
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+    <!-- STATIC: Bottom buttons -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:paddingTop="24dp"
+        android:paddingBottom="36dp">
+
+        <Button
+            android:id="@+id/btnNext"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            app:backgroundTint="@null"
+            android:background="@drawable/bg_button_primary"
+            android:stateListAnimator="@null"
+            android:text="Next"
+            android:textAppearance="@style/PrimaryButton"
+            android:textColor="@color/neutral10" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:gravity="end|center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/btnGoToLogin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:focusable="true"
+                android:text="Go To Login"
+                android:textAppearance="@style/SubHeading1"
+                android:textColor="@color/linkBlue" />
+
+            <ImageView
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                android:layout_marginStart="4dp"
+                android:src="@drawable/ic_arrow_forward"
+                android:tint="@color/linkBlue"
+                tools:ignore="ContentDescription" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

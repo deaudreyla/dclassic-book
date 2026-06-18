@@ -7,6 +7,6 @@
         android:startColor="@color/primary10"
         android:centerColor="@color/secondary10"
         android:endColor="@color/secondary10"
-        android:centerX="0.5"
+        android:centerX="0.4"
         android:centerY="0.5" />
 </shape>
