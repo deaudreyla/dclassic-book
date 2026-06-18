@@ -44,6 +44,9 @@
     <color name="warningBorder">#FFFFDE7F</color>
     <color name="warningBg">#FFFFF9E6</color>
 
+    <!-- Link Color -->
+    <color name="linkBlue">#1E5EFF</color>
+
     <!-- Danger Colors -->
     <color name="dangerText">#FFFF3B2F</color>
     <color name="dangerBorder">#FFFF9C96</color>

@@ -11,8 +11,10 @@
                 android:type="linear"
                 android:angle="270"
                 android:startColor="@color/secondary50"
-                android:centerColor="#00FFF1D8"
-                android:endColor="#00FFF1D8" />
+                android:centerColor="@color/backgroundBase"
+                android:endColor="@color/backgroundBase"
+                android:centerX="0.2"
+                android:centerY="0.5" />
         </shape>
     </item>
 </layer-list>

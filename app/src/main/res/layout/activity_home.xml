@@ -11,64 +11,252 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <LinearLayout
+        <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:background="@drawable/bg_screen_gradient"
-            android:paddingHorizontal="16dp"
-            android:paddingTop="16dp">
+            android:paddingBottom="110dp"
+            android:clipToPadding="false"
+            android:clipChildren="false">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical"
-                android:paddingTop="8dp"
-                android:paddingBottom="8dp">
+                android:orientation="vertical"
+                android:clipChildren="false">
 
-                <ImageView
-                    android:id="@+id/btnHamburg"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:src="@drawable/ic_nav_hamburg"
-                    android:clickable="true"
-                    android:focusable="true"
-                    tools:ignore="ContentDescription" />
+                <!-- Hero Section -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clipChildren="false"
+                    android:background="@drawable/bg_home_hero"
+                    android:orientation="vertical"
+                    android:paddingStart="16dp"
+                    android:paddingTop="8dp">
 
-                <View
-                    android:layout_width="0dp"
-                    android:layout_height="1dp"
-                    android:layout_weight="1" />
+                    <!-- Header row -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:paddingTop="8dp"
+                        android:paddingEnd="16dp"
+                        android:paddingBottom="8dp">
 
-                <ImageView
-                    android:layout_width="28dp"
-                    android:layout_height="28dp"
-                    android:src="@drawable/ic_nav_profile"
-                    android:clickable="true"
-                    android:focusable="true"
-                    tools:ignore="ContentDescription" />
+                        <ImageView
+                            android:id="@+id/btnHamburg"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:src="@drawable/ic_nav_hamburg"
+                            tools:ignore="ContentDescription" />
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="1dp"
+                            android:layout_weight="1" />
+
+                        <ImageView
+                            android:layout_width="28dp"
+                            android:layout_height="28dp"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:src="@drawable/ic_nav_profile"
+                            tools:ignore="ContentDescription" />
+
+                    </LinearLayout>
+
+                    <!-- Hero body: greeting left + illustration right -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp"
+                        android:clipChildren="false"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:paddingTop="12dp">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:paddingBottom="40dp">
+
+                            <TextView
+                                android:id="@+id/tvGreeting"
+                                android:layout_width="228dp"
+                                android:layout_height="wrap_content"
+                                android:text="Hello User!"
+                                android:textAppearance="@style/HeroTitle"
+                                android:textColor="@color/accent200" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:text="Timeless stories, endless journeys."
+                                android:textAppearance="@style/BodySmall"
+                                android:textColor="@color/accent100" />
+
+                        </LinearLayout>
+
+                        <ImageView
+                            android:layout_width="240dp"
+                            android:layout_height="280dp"
+                            android:layout_marginTop="42dp"
+                            android:layout_marginRight="-42dp"
+                            android:cropToPadding="false"
+                            android:defaultFocusHighlightEnabled="true"
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/img_readbook"
+                            tools:ignore="ContentDescription" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <!-- White Content Card (overlaps hero) -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="-36dp"
+                    android:background="@drawable/bg_home_content"
+                    android:clipChildren="false"
+                    android:orientation="vertical"
+                    android:paddingTop="36dp"
+                    android:paddingBottom="24dp">
+
+                    <!-- Featured Books header -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:paddingStart="16dp"
+                        android:paddingEnd="16dp"
+                        android:paddingBottom="12dp">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Featured Books"
+                            android:textAppearance="@style/Heading1"
+                            android:textColor="@color/neutral200" />
+
+                        <TextView
+                            android:id="@+id/btnViewAllBooks"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:text="View All"
+                            android:textAppearance="@style/Caption"
+                            android:textColor="@color/primary150" />
+
+                    </LinearLayout>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rvFeaturedBooks"
+                        android:layout_width="match_parent"
+                        android:layout_height="320dp"
+                        android:clipChildren="false"
+                        android:clipToPadding="false"
+                        android:overScrollMode="never"
+                        android:paddingStart="16dp"
+                        android:paddingEnd="16dp" />
+
+                    <!-- Our Stores header -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:paddingStart="16dp"
+                        android:paddingEnd="16dp"
+                        android:paddingTop="24dp"
+                        android:paddingBottom="12dp">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Our Stores"
+                            android:textAppearance="@style/Heading1"
+                            android:textColor="@color/neutral200" />
+
+                        <TextView
+                            android:id="@+id/btnViewAllStores"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:text="View All"
+                            android:textAppearance="@style/Caption"
+                            android:textColor="@color/primary150" />
+
+                    </LinearLayout>
+
+                    <!-- Carousel: cards + arrow buttons -->
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="253dp"
+                        android:clipChildren="false">
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rvStoreCarousel"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:clipChildren="false"
+                            android:clipToPadding="false"
+                            android:overScrollMode="never"
+                            android:paddingStart="28dp"
+                            android:paddingEnd="28dp" />
+
+                        <ImageButton
+                            android:id="@+id/btnPrevStore"
+                            android:layout_width="42dp"
+                            android:layout_height="42dp"
+                            android:layout_gravity="start|center_vertical"
+                            android:layout_marginStart="8dp"
+                            android:background="@drawable/bg_arrow_carousel"
+                            android:src="@drawable/ic_arrow_forward"
+                            android:rotation="180"
+                            android:padding="10dp"
+                            android:elevation="4dp"
+                            tools:ignore="ContentDescription" />
+
+                        <ImageButton
+                            android:id="@+id/btnNextStore"
+                            android:layout_width="42dp"
+                            android:layout_height="42dp"
+                            android:layout_gravity="end|center_vertical"
+                            android:layout_marginEnd="8dp"
+                            android:background="@drawable/bg_arrow_carousel"
+                            android:src="@drawable/ic_arrow_forward"
+                            android:padding="10dp"
+                            android:elevation="4dp"
+                            tools:ignore="ContentDescription" />
+
+                    </FrameLayout>
+
+                    <!-- Dot indicators -->
+                    <LinearLayout
+                        android:id="@+id/llStoreDots"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal" />
+
+                </LinearLayout>
 
             </LinearLayout>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="Home"
-                android:textAppearance="@style/Title" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="Home page coming soon"
-                android:textAppearance="@style/SubHeading1"
-                android:textColor="@color/accent10" />
-
-        </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
 
         <include layout="@layout/layout_navbar" />
 
