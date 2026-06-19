@@ -15,24 +15,23 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:background="@drawable/bg_screen_gradient"
-            android:fitsSystemWindows="true">
+            android:background="@drawable/bg_screen_gradient">
 
             <!-- Header -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:paddingHorizontal="16dp"
-                android:paddingTop="16dp">
+                android:paddingHorizontal="16dp">
 
                 <LinearLayout
+                    android:id="@+id/staticHeaderLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:gravity="center_vertical"
                     android:paddingTop="8dp"
-                    android:paddingBottom="8dp">
+                    android:paddingBottom="16dp">
 
                     <ImageView
                         android:id="@+id/btnHamburg"
@@ -58,52 +57,58 @@
 
                 </LinearLayout>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:text="Books Collection"
-                    android:textAppearance="@style/Title" />
-
                 <LinearLayout
+                    android:id="@+id/mainContentLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:orientation="horizontal"
-                    android:background="@drawable/bg_tab_container"
-                    android:paddingHorizontal="5dp"
-                    android:paddingVertical="4dp">
+                    android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/tabFiction"
-                        android:layout_width="0dp"
-                        android:layout_height="40dp"
-                        android:layout_weight="1"
-                        android:paddingVertical="8dp"
-                        android:gravity="center"
-                        android:text="Fiction"
-                        android:background="@drawable/bg_tab_active"
-                        android:textAppearance="@style/Heading3"
-                        android:textColor="@color/neutral10"
-                        android:clickable="true"
-                        android:focusable="true" />
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Books Collection"
+                        android:textAppearance="@style/Title" />
 
-                    <TextView
-                        android:id="@+id/tabNonFiction"
-                        android:layout_width="0dp"
-                        android:layout_height="40dp"
-                        android:layout_weight="1"
-                        android:paddingVertical="8dp"
-                        android:gravity="center"
-                        android:text="Non-Fiction"
-                        android:background="@drawable/bg_tab_inactive"
-                        android:textAppearance="@style/Heading3"
-                        android:textColor="@color/neutral50"
-                        android:clickable="true"
-                        android:focusable="true" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:orientation="horizontal"
+                        android:background="@drawable/bg_tab_container"
+                        android:paddingHorizontal="5dp"
+                        android:paddingVertical="4dp">
+
+                        <TextView
+                            android:id="@+id/tabFiction"
+                            android:layout_width="0dp"
+                            android:layout_height="40dp"
+                            android:layout_weight="1"
+                            android:paddingVertical="8dp"
+                            android:gravity="center"
+                            android:text="Fiction"
+                            android:background="@drawable/bg_tab_active"
+                            android:textAppearance="@style/Heading3"
+                            android:textColor="@color/neutral10"
+                            android:clickable="true"
+                            android:focusable="true" />
+
+                        <TextView
+                            android:id="@+id/tabNonFiction"
+                            android:layout_width="0dp"
+                            android:layout_height="40dp"
+                            android:layout_weight="1"
+                            android:paddingVertical="8dp"
+                            android:gravity="center"
+                            android:text="Non-Fiction"
+                            android:background="@drawable/bg_tab_inactive"
+                            android:textAppearance="@style/Heading3"
+                            android:textColor="@color/neutral50"
+                            android:clickable="true"
+                            android:focusable="true" />
+
+                    </LinearLayout>
 
                 </LinearLayout>
-
             </LinearLayout>
 
             <!-- ViewPager2 -->

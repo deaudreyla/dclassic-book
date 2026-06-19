@@ -79,8 +79,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:text="Our Stores"
-                android:textAppearance="@style/Title"
-                android:textSize="18sp"
+                android:textAppearance="@style/Heading1"
                 android:textColor="@color/neutral200"
                 android:alpha="0" />
 

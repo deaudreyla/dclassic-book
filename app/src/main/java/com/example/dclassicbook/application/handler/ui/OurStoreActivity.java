@@ -55,7 +55,7 @@ public class OurStoreActivity extends AppCompatActivity {
                 bgParams.height = totalHeaderHeight;
                 headerBackground.setLayoutParams(bgParams);
 
-                int extraGap = (int) (16 * getResources().getDisplayMetrics().density); // Jarak 16dp
+                int extraGap = (int) (6 * getResources().getDisplayMetrics().density); // Jarak 16dp
                 mainContentLayout.setPadding(
                         mainContentLayout.getPaddingLeft(),
                         totalHeaderHeight + extraGap,
@@ -68,8 +68,8 @@ public class OurStoreActivity extends AppCompatActivity {
 
         scrollView.setOnScrollChangeListener((androidx.core.widget.NestedScrollView.OnScrollChangeListener)
                 (v, scrollX, scrollY, oldScrollX, oldScrollY) -> {
-                    int startScroll = 90;
-                    int fadeDistance = 20;
+                    int startScroll = 80;
+                    int fadeDistance = 30;
 
                     float progress = (float) (scrollY - startScroll) / fadeDistance;
                     float alpha = Math.max(0f, Math.min(1f, progress));

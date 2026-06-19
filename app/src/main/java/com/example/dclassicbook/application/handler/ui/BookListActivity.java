@@ -1,6 +1,7 @@
 package com.example.dclassicbook.application.handler.ui;
 
 import android.os.Bundle;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -36,6 +37,38 @@ public class BookListActivity extends AppCompatActivity {
         tabFiction = findViewById(R.id.tabFiction);
         tabNonFiction = findViewById(R.id.tabNonFiction);
         viewPager = findViewById(R.id.viewPager);
+
+        LinearLayout staticHeaderLayout = findViewById(R.id.staticHeaderLayout);
+        // 1. Panggil ID bungkus konten yang baru
+        LinearLayout mainContentLayout = findViewById(R.id.mainContentLayout);
+
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(android.R.id.content), (v, insets) -> {
+            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+
+            // 2. Padding kamera untuk header (+16)
+            if (staticHeaderLayout != null) {
+                staticHeaderLayout.setPadding(
+                        staticHeaderLayout.getPaddingLeft(),
+                        systemBars.top + 16,
+                        staticHeaderLayout.getPaddingRight(),
+                        staticHeaderLayout.getPaddingBottom()
+                );
+            }
+
+            // 3. Atur gap (jarak) header dengan tulisan dari Java
+            if (mainContentLayout != null) {
+                // Samakan angka 6 ini dengan OurStoreActivity
+                int extraGap = (int) (6 * getResources().getDisplayMetrics().density);
+
+                mainContentLayout.setPadding(
+                        mainContentLayout.getPaddingLeft(),
+                        extraGap, // Terapkan gap-nya di sisi atas
+                        mainContentLayout.getPaddingRight(),
+                        mainContentLayout.getPaddingBottom()
+                );
+            }
+            return insets;
+        });
 
         viewPager.setAdapter(new BookListPagerAdapter(this));
 

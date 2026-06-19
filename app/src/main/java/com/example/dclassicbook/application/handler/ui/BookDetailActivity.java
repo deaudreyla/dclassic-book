@@ -1,11 +1,13 @@
 package com.example.dclassicbook.application.handler.ui;
 
 import android.content.Intent;
+import android.graphics.PorterDuff;
 import android.graphics.RenderEffect;
 import android.graphics.Shader;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -14,6 +16,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.core.view.WindowCompat;
 
 import com.example.dclassicbook.R;
@@ -48,10 +51,61 @@ public class BookDetailActivity extends AppCompatActivity {
         TextView tvSynopsis = findViewById(R.id.tvSynopsis);
         TextView tvPrice = findViewById(R.id.tvPrice);
         TextView tvBack = findViewById(R.id.tvBack);
+        ImageView tvArrowBack = findViewById(R.id.tvArrowBack);
         Button btnBuyBook = findViewById(R.id.btnBuyBook);
         EditText etPhoneNumber = findViewById(R.id.etPhoneNumber);
         EditText etAddress = findViewById(R.id.etAddress);
         LinearLayout llStars = findViewById(R.id.llStars);
+
+        View headerBackground = findViewById(R.id.headerBackground);
+        LinearLayout stickyHeaderLayout = findViewById(R.id.stickyHeaderLayout);
+        androidx.core.widget.NestedScrollView scrollView = findViewById(R.id.scrollView);
+
+        tvBack.setOnClickListener(v -> finish());
+        tvArrowBack.setOnClickListener(v -> finish());
+
+        androidx.core.view.ViewCompat.setOnApplyWindowInsetsListener(findViewById(android.R.id.content), (v, insets) -> {
+            androidx.core.graphics.Insets systemBars = insets.getInsets(androidx.core.view.WindowInsetsCompat.Type.systemBars());
+
+            stickyHeaderLayout.setPadding(
+                    stickyHeaderLayout.getPaddingLeft(),
+                    systemBars.top + 8,
+                    stickyHeaderLayout.getPaddingRight(),
+                    stickyHeaderLayout.getPaddingBottom()
+            );
+
+            stickyHeaderLayout.post(() -> {
+                int totalHeaderHeight = stickyHeaderLayout.getHeight();
+                android.view.ViewGroup.LayoutParams bgParams = headerBackground.getLayoutParams();
+                bgParams.height = totalHeaderHeight;
+                headerBackground.setLayoutParams(bgParams);
+            });
+
+            return insets;
+        });
+
+        int colorLight = ContextCompat.getColor(this, R.color.neutral10); // Putih
+        int colorDark = ContextCompat.getColor(this, R.color.neutral200);
+
+        scrollView.setOnScrollChangeListener((androidx.core.widget.NestedScrollView.OnScrollChangeListener)
+                (v, scrollX, scrollY, oldScrollX, oldScrollY) -> {
+
+                    int startScroll = 180;
+                    int fadeDistance = 80;
+
+                    float progress = (float) (scrollY - startScroll) / fadeDistance;
+                    float alpha = Math.max(0f, Math.min(1f, progress));
+
+                    headerBackground.setAlpha(alpha);
+
+                    if (alpha > 0.5f) {
+                        tvBack.setTextColor(colorDark);
+                        tvArrowBack.setColorFilter(colorDark, PorterDuff.Mode.SRC_IN);
+                    } else {
+                        tvBack.setTextColor(colorLight);
+                        tvArrowBack.setColorFilter(colorLight, PorterDuff.Mode.SRC_IN);
+                    }
+                });
 
         ivBackground.setImageResource(book.getImage());
         ivBackground.setRenderEffect(RenderEffect.createBlurEffect(25f, 25f, Shader.TileMode.CLAMP));
