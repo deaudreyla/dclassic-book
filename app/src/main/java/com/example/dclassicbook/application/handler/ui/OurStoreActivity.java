@@ -20,6 +20,7 @@ import com.example.dclassicbook.application.Mediator;
 import com.example.dclassicbook.application.handler.ui.adapter.StoreAdapter;
 import com.example.dclassicbook.application.handler.ui.util.NavbarHelper;
 import com.example.dclassicbook.application.handler.ui.util.SidebarHelper;
+import com.example.dclassicbook.application.handler.ui.util.StickyHeaderHelper;
 
 public class OurStoreActivity extends AppCompatActivity {
 
@@ -38,44 +39,11 @@ public class OurStoreActivity extends AppCompatActivity {
         androidx.core.widget.NestedScrollView scrollView = findViewById(R.id.scrollView);
         android.widget.TextView tvStickyTitle = findViewById(R.id.tvStickyTitle);
 
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(android.R.id.content), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-
-            stickyHeaderLayout.setPadding(
-                    stickyHeaderLayout.getPaddingLeft(),
-                    systemBars.top + 16, // +16dp untuk estetik
-                    stickyHeaderLayout.getPaddingRight(),
-                    stickyHeaderLayout.getPaddingBottom()
-            );
-
-            stickyHeaderLayout.post(() -> {
-                int totalHeaderHeight = stickyHeaderLayout.getHeight();
-
-                android.view.ViewGroup.LayoutParams bgParams = headerBackground.getLayoutParams();
-                bgParams.height = totalHeaderHeight;
-                headerBackground.setLayoutParams(bgParams);
-
-                int extraGap = (int) (6 * getResources().getDisplayMetrics().density); // Jarak 16dp
-                mainContentLayout.setPadding(
-                        mainContentLayout.getPaddingLeft(),
-                        totalHeaderHeight + extraGap,
-                        mainContentLayout.getPaddingRight(),
-                        mainContentLayout.getPaddingBottom()
-                );
-            });
-            return insets;
-        });
-
-        scrollView.setOnScrollChangeListener((androidx.core.widget.NestedScrollView.OnScrollChangeListener)
-                (v, scrollX, scrollY, oldScrollX, oldScrollY) -> {
-                    int startScroll = 80;
-                    int fadeDistance = 30;
-
-                    float progress = (float) (scrollY - startScroll) / fadeDistance;
-                    float alpha = Math.max(0f, Math.min(1f, progress));
-                    headerBackground.setAlpha(alpha);
-                    tvStickyTitle.setAlpha(alpha);
-                });
+        StickyHeaderHelper.setup(
+                this, stickyHeaderLayout, headerBackground, mainContentLayout,
+                scrollView, tvStickyTitle, 6, 80, 40,
+                null
+        );
 
         drawerLayout = findViewById(R.id.drawerLayout);
 
