@@ -1,6 +1,7 @@
 package com.example.dclassicbook.application.handler.ui;
 
 import android.os.Bundle;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -8,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.GravityCompat;
 import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.viewpager2.widget.ViewPager2;
@@ -28,17 +30,41 @@ public class BookListActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
+        WindowCompat.setDecorFitsSystemWindows(getWindow(), false);
         setContentView(R.layout.activity_booklist);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(android.R.id.content), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
 
         drawerLayout = findViewById(R.id.drawerLayout);
         tabFiction = findViewById(R.id.tabFiction);
         tabNonFiction = findViewById(R.id.tabNonFiction);
         viewPager = findViewById(R.id.viewPager);
+
+        LinearLayout staticHeaderLayout = findViewById(R.id.staticHeaderLayout);
+        LinearLayout mainContentLayout = findViewById(R.id.mainContentLayout);
+
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(android.R.id.content), (v, insets) -> {
+            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+
+            if (staticHeaderLayout != null) {
+                staticHeaderLayout.setPadding(
+                        staticHeaderLayout.getPaddingLeft(),
+                        systemBars.top + 16,
+                        staticHeaderLayout.getPaddingRight(),
+                        staticHeaderLayout.getPaddingBottom()
+                );
+            }
+
+            if (mainContentLayout != null) {
+                int extraGap = (int) (6 * getResources().getDisplayMetrics().density);
+
+                mainContentLayout.setPadding(
+                        mainContentLayout.getPaddingLeft(),
+                        extraGap,
+                        mainContentLayout.getPaddingRight(),
+                        mainContentLayout.getPaddingBottom()
+                );
+            }
+            return insets;
+        });
 
         viewPager.setAdapter(new BookListPagerAdapter(this));
 

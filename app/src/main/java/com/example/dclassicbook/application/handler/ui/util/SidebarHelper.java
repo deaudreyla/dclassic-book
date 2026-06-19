@@ -13,6 +13,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import com.example.dclassicbook.R;
 import com.example.dclassicbook.application.handler.ui.BookListActivity;
 import com.example.dclassicbook.application.handler.ui.HomeActivity;
+import com.example.dclassicbook.application.handler.ui.LoginActivity;
 import com.example.dclassicbook.application.handler.ui.OurStoreActivity;
 
 public class SidebarHelper {
@@ -85,7 +86,7 @@ public class SidebarHelper {
         });
 
         activity.findViewById(R.id.sidebarLogout).setOnClickListener(v -> {
-            Intent intent = new Intent(activity, HomeActivity.class);
+            Intent intent = new Intent(activity, LoginActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
             activity.startActivity(intent, ActivityOptions.makeCustomAnimation(activity, 0, 0).toBundle());
             activity.finish();

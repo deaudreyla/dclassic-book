@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.GravityCompat;
 import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -24,6 +25,7 @@ import com.example.dclassicbook.application.handler.ui.adapter.FeaturedBookAdapt
 import com.example.dclassicbook.application.handler.ui.adapter.StoreCarouselAdapter;
 import com.example.dclassicbook.application.handler.ui.util.NavbarHelper;
 import com.example.dclassicbook.application.handler.ui.util.SidebarHelper;
+import com.example.dclassicbook.application.handler.ui.util.StickyHeaderHelper;
 
 import android.widget.TextView;
 
@@ -43,12 +45,20 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
+        WindowCompat.setDecorFitsSystemWindows(getWindow(), false);
         setContentView(R.layout.activity_home);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(android.R.id.content), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
+
+        View headerBackground = findViewById(R.id.headerBackground);
+        LinearLayout stickyHeaderLayout = findViewById(R.id.stickyHeaderLayout);
+        androidx.core.widget.NestedScrollView scrollView = findViewById(R.id.scrollView);
+        android.widget.TextView tvStickyTitle = findViewById(R.id.tvStickyTitle);
+        LinearLayout heroSectionLayout = findViewById(R.id.heroSectionLayout);
+
+        StickyHeaderHelper.setup(
+                this, stickyHeaderLayout, headerBackground, heroSectionLayout,
+                scrollView, tvStickyTitle, 16, 0, 150,
+                null
+        );
 
         drawerLayout = findViewById(R.id.drawerLayout);
 
