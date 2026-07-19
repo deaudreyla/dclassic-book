@@ -75,7 +75,7 @@ public class LoginActivity extends AppCompatActivity {
             boolean valid = true;
 
             if (username.isEmpty()) {
-                tvUsernameError.setText("Username tidak boleh kosong");
+                tvUsernameError.setText("Username Must be Field!");
                 tvUsernameError.setVisibility(View.VISIBLE);
                 valid = false;
             } else {
@@ -83,11 +83,11 @@ public class LoginActivity extends AppCompatActivity {
             }
 
             if (password.isEmpty()) {
-                tvPasswordError.setText("Password tidak boleh kosong");
+                tvPasswordError.setText("Password Must be Field!");
                 tvPasswordError.setVisibility(View.VISIBLE);
                 valid = false;
             } else if (!isAlphanumeric(password)) {
-                tvPasswordError.setText("Password harus mengandung huruf dan angka");
+                tvPasswordError.setText("Password Must Constain a Number and Characters!");
                 tvPasswordError.setVisibility(View.VISIBLE);
                 valid = false;
             } else {
