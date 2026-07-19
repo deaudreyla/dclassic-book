@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@android:color/transparent"
+    android:padding="18dp"
+    android:gravity="center_horizontal">
+
+    <ImageView
+        android:layout_width="170dp"
+        android:layout_height="170dp"
+        android:src="@drawable/img_error"
+        android:scaleType="fitCenter"
+        android:contentDescription="@null" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:text="Oops, Error Occured!"
+        android:textAppearance="@style/Heading1"
+        android:textColor="@color/neutral200"
+        android:gravity="center" />
+
+    <TextView
+        android:id="@+id/tvErrorMessage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:textAppearance="@style/BodyMedium"
+        android:textColor="@color/neutral100"
+        android:gravity="center" />
+
+    <Button
+        android:id="@+id/btnErrorTryAgain"
+        android:layout_width="match_parent"
+        android:layout_height="39dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/bg_button_primary"
+        android:stateListAnimator="@null"
+        android:text="Try Again"
+        android:textAppearance="@style/PrimaryButton"
+        android:textColor="@color/neutral10"
+        app:backgroundTint="@null" />
+
+</LinearLayout>
