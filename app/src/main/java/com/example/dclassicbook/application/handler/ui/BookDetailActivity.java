@@ -14,7 +14,10 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import android.view.LayoutInflater;
 import androidx.appcompat.app.AlertDialog;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.core.view.WindowCompat;
@@ -113,39 +116,48 @@ public class BookDetailActivity extends AppCompatActivity {
             String address = etAddress.getText().toString().trim();
 
             if (phone.isEmpty()) {
-                showDialog("Phone Number Kosong", "Phone number tidak boleh kosong.");
+                showDialog("Phone Number is Empty", "You must insert your phone number to continue your order process!");
                 return;
             }
 
             if (!phone.matches("[0-9]+")) {
-                showDialog("Phone Number Tidak Valid", "Phone number hanya boleh berisi angka.");
+                showDialog("Invalid Phone Number", "You can only insert number for phone number field!");
                 return;
             }
 
             if (address.isEmpty()) {
-                showDialog("Address Kosong", "Address tidak boleh kosong.");
+                showDialog("Address is Empty", "You must insert your address to continue your order process!");
                 return;
             }
 
-            new AlertDialog.Builder(this)
-                    .setTitle("Pesanan Berhasil!")
-                    .setMessage("Email konfirmasi pesanan telah dikirimkan kepada Anda.")
-                    .setPositiveButton("OK", (dialog, which) -> {
-                        Intent intent = new Intent(this, BookListActivity.class);
-                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-                        startActivity(intent);
-                        finish();
-                    })
-                    .setCancelable(false)
-                    .show();
+            showSuccessDialog();
         });
     }
 
+    private void showSuccessDialog() {
+        android.view.View dialogView = LayoutInflater.from(this).inflate(R.layout.dialog_success, null);
+        AlertDialog dialog = new MaterialAlertDialogBuilder(this)
+                .setView(dialogView)
+                .setCancelable(false)
+                .create();
+        dialogView.findViewById(R.id.btnSuccessDone).setOnClickListener(v -> {
+            dialog.dismiss();
+            Intent intent = new Intent(this, BookListActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+            startActivity(intent);
+            finish();
+        });
+        dialog.show();
+    }
+
     private void showDialog(String title, String message) {
-        new AlertDialog.Builder(this)
-                .setTitle(title)
-                .setMessage(message)
-                .setPositiveButton("OK", null)
-                .show();
+        android.view.View dialogView = LayoutInflater.from(this).inflate(R.layout.dialog_error, null);
+        ((TextView) dialogView.findViewById(R.id.tvErrorMessage)).setText(message);
+        AlertDialog dialog = new MaterialAlertDialogBuilder(this)
+                .setView(dialogView)
+                .setCancelable(true)
+                .create();
+        dialogView.findViewById(R.id.btnErrorTryAgain).setOnClickListener(v -> dialog.dismiss());
+        dialog.show();
     }
 }

@@ -1,5 +1,6 @@
 *.iml
 .gradle
+CLAUDE.md
 /local.properties
 /.idea/caches
 /.idea/libraries

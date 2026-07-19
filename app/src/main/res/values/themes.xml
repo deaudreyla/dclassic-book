@@ -7,7 +7,9 @@
         <item name="android:windowLightStatusBar">true</item>
     </style>
 
-    <style name="Theme.DClassicBook" parent="Base.Theme.DClassicBook" />
+    <style name="Theme.DClassicBook" parent="Base.Theme.DClassicBook">
+        <item name="android:windowSplashScreenBackground">@color/backgroundBase</item>
+    </style>
 
     <style name="HeroTitle">
         <item name="android:fontFamily">@font/merriweather_semibold</item>
